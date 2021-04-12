@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 func main() {
@@ -12,6 +11,17 @@ func main() {
 func containsAllowedSymbols(numbers ...int) []int {
 	result := make([]int, len(numbers))
 	copy(result, numbers)
-	sort.Ints(result) // Или собственная реализация одного из алгоритмов сортировки
+	for i := 1; i < len(result); i++ {
+		temp := result[i]
+		index := i
+		for j := i - 1; j > -1; j-- {
+			if result[j] < temp {
+				break
+			}
+			result[j+1] = result[j]
+			index = j
+		}
+		result[index] = temp
+	}
 	return result
 }
