@@ -5,10 +5,10 @@ import (
 )
 
 func main() {
-	fmt.Println(containsAllowedSymbols(6, 12, 3, 7))
+	fmt.Println(sortIntSequence(6, 12, 3, 7))
 }
 
-func containsAllowedSymbols(numbers ...int) []int {
+func sortIntSequence(numbers ...int) []int {
 	result := make([]int, len(numbers))
 	copy(result, numbers)
 	for i := 1; i < len(result); i++ {
